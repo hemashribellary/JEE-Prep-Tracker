@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 text-center">
+        <h1 class="mb-2">JEE Prep Tracker</h1>
+        <p class="text-muted mb-5">Track your practice sessions, mistakes, and progress</p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center p-4">
+                <h2 class="mb-3">📝</h2>
+                <h5 class="card-title">Log Session</h5>
+                <p class="card-text text-muted">Record a practice session with subject, topic, accuracy and time spent</p>
+                <a href="{{ url_for('log_session') }}" class="btn btn-primary mt-2">Log Session</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center p-4">
+                <h2 class="mb-3">❌</h2>
+                <h5 class="card-title">Log Mistake</h5>
+                <p class="card-text text-muted">Record a mistake with subject, topic, question and mistake type</p>
+                <a href="{{ url_for('log_mistake') }}" class="btn btn-danger mt-2">Log Mistake</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center p-4">
+                <h2 class="mb-3">📊</h2>
+                <h5 class="card-title">Dashboard</h5>
+                <p class="card-text text-muted">View your analytics, accuracy charts and weak topics</p>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-success mt-2">View Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
