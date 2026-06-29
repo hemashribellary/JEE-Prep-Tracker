@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="mb-4">Log Practice Session</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Subject</label>
+                <select name="subject" class="form-select" required>
+                    <option value="">-- Select Subject --</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Mathematics">Mathematics</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Topic</label>
+                <input type="text" name="topic" class="form-control" placeholder="e.g. Kinematics" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Questions Attempted</label>
+                <input type="number" name="questions_attempted" class="form-control" min="0" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Questions Correct</label>
+                <input type="number" name="questions_correct" class="form-control" min="0" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Time Spent (minutes)</label>
+                <input type="number" name="time_spent" class="form-control" min="0" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Notes (optional)</label>
+                <textarea name="notes" class="form-control" rows="3" placeholder="Any observations..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Session</button>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-secondary ms-2">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
