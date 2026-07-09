@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Mistake Log</h2>
+    <a href="{{ url_for('log_mistake') }}" class="btn btn-danger">+ Log Mistake</a>
+</div>
+
+{% if mistakes %}
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Topic</th>
+                <th>Question</th>
+                <th>Mistake Type</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mistake in mistakes %}
+            <tr>
+                <td>{{ mistake.date.strftime('%d %b %Y') }}</td>
+                <td>{{ mistake.subject }}</td>
+                <td>{{ mistake.topic }}</td>
+                <td>{{ mistake.question }}</td>
+                <td>
+                    {% if mistake.mistake_type == 'Conceptual' %}
+                        <span class="badge bg-danger">Conceptual</span>
+                    {% elif mistake.mistake_type == 'Calculation' %}
+                        <span class="badge bg-warning text-dark">Calculation</span>
+                    {% else %}
+                        <span class="badge bg-secondary">Silly</span>
+                    {% endif %}
+                </td>
+                <td>{{ mistake.notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="text-center mt-5">
+    <p class="text-muted">No mistakes logged yet.</p>
+    <a href="{{ url_for('log_mistake') }}" class="btn btn-danger">Log Your First Mistake</a>
+</div>
+{% endif %}
+{% endblock %}
