@@ -20,9 +20,61 @@ def index():
 
 @app.route('/dashboard')
 def dashboard():
+    from collections import defaultdict
     sessions = Session.query.order_by(Session.date.desc()).all()
     mistakes = Mistake.query.order_by(Mistake.date.desc()).all()
-    return render_template('dashboard.html', sessions=sessions, mistakes=mistakes)
+
+    # Overall totals
+    total_attempted = sum(s.questions_attempted for s in sessions)
+    total_correct   = sum(s.questions_correct for s in sessions)
+    total_time      = sum(s.time_spent for s in sessions)
+    overall_accuracy = round((total_correct / total_attempted * 100), 1) if total_attempted > 0 else 0
+
+    # Per-subject breakdown
+    subject_data = defaultdict(lambda: {'attempted': 0, 'correct': 0, 'time': 0})
+    for s in sessions:
+        subject_data[s.subject]['attempted'] += s.questions_attempted
+        subject_data[s.subject]['correct']   += s.questions_correct
+        subject_data[s.subject]['time']      += s.time_spent
+
+    subject_accuracy = {}
+    for subject, data in subject_data.items():
+        if data['attempted'] > 0:
+            subject_accuracy[subject] = round(data['correct'] / data['attempted'] * 100, 1)
+        else:
+            subject_accuracy[subject] = 0
+
+    # Per-topic breakdown for weak topic detection
+    topic_data = defaultdict(lambda: {'attempted': 0, 'correct': 0, 'subject': ''})
+    for s in sessions:
+        topic_data[s.topic]['attempted'] += s.questions_attempted
+        topic_data[s.topic]['correct']   += s.questions_correct
+        topic_data[s.topic]['subject']    = s.subject
+
+    weak_topics = []
+    for topic, data in topic_data.items():
+        if data['attempted'] > 0:
+            accuracy = round(data['correct'] / data['attempted'] * 100, 1)
+            if accuracy < 60:
+                weak_topics.append({
+                    'topic': topic,
+                    'subject': data['subject'],
+                    'accuracy': accuracy,
+                    'attempted': data['attempted']
+                })
+    weak_topics.sort(key=lambda x: x['accuracy'])
+
+    return render_template('dashboard.html',
+        sessions=sessions,
+        mistakes=mistakes,
+        total_attempted=total_attempted,
+        total_correct=total_correct,
+        total_time=total_time,
+        overall_accuracy=overall_accuracy,
+        subject_data=dict(subject_data),
+        subject_accuracy=subject_accuracy,
+        weak_topics=weak_topics
+    )
 
 
 @app.route('/log_session', methods=['GET', 'POST'])
