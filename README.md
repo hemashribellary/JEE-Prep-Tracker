@@ -1,8 +1,3 @@
-Good call. Here's a more natural version:
-
-Open `README.md`, delete everything, and type this:
-
-```markdown
 # JEE Prep Tracker
 
 I built this web app to track my JEE preparation. I was logging sessions in a notebook and it was getting hard to see patterns — which subjects I was weak in, which topics kept coming up in mistakes, how much time I was actually spending. So I decided to build something to do that automatically.
@@ -54,4 +49,3 @@ Then open `http://127.0.0.1:5000` in your browser.
 I'm in Class 12 at Narayana Olympiad School in Bengaluru, preparing for both JEE and CBSE boards. JEE prep on top of school is roughly 20–25 extra hours a week. I wanted to use what I was learning in CS to actually help with that preparation, so I built this over about 10 weeks as a self-directed project.
 
 This is my second CS project — the first was a phishing URL detector using machine learning.
-
