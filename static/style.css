@@ -1,0 +1,75 @@
+/* General */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Summary stat numbers on dashboard */
+.card h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* Table */
+.table {
+    font-size: 0.92rem;
+}
+
+.table thead th {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.82rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* Form inputs */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.15);
+}
+
+/* Headings */
+h2 {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Footer spacing */
+.container {
+    padding-bottom: 40px;
+}
