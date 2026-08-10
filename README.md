@@ -2,7 +2,7 @@
 
 🚀 Live at: https://jee-prep-tracker-jjlf.onrender.com
 
-(image.png)
+![alt text](image-1.png)
 
 I built this web app to track my JEE preparation. I was logging sessions in a notebook and it was getting hard to see patterns: which subjects I was weak in, which topics kept coming up in mistakes, how much time I was actually spending. So I decided to build something to do that automatically.
 
