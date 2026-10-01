@@ -1,10 +1,12 @@
 # JEE Prep Tracker
 
 🚀 Live at: https://jee-prep-tracker-jjlf.onrender.com
+(Free Render tier, so the first load can take about a minute.)
 
 ![JEE Prep Tracker dashboard with accuracy and time charts](image-1.png)
+*Screenshot uses demo data.*
 
-I built this web app to track my JEE preparation. I was logging sessions in a notebook and it was getting hard to see patterns: which subjects I was weak in, which topics kept coming up in mistakes, how much time I was actually spending. So I decided to build something to do that automatically.
+I built this web app to track my JEE (India's engineering entrance exam) preparation. I was logging sessions in a notebook and it was getting hard to see patterns: which subjects I was weak in, which topics kept coming up in mistakes, how much time I was actually spending. So I decided to build something to do that automatically.
 
 ## What it does
 
@@ -20,6 +22,6 @@ Python, Flask, SQLite, SQLAlchemy, Bootstrap 5, Chart.js. Deployed on Render.
 
 ## Background
 
-I'm in Class 12 at Narayana Olympiad School in Bengaluru, preparing for both JEE and CBSE boards. JEE prep on top of school is roughly 20-25 extra hours a week. I wanted to use what I was learning in CS to actually help with that preparation, so I built this over about 10 weeks as a self-directed project.
+I'm in Class 12 in Bengaluru, preparing for both JEE and CBSE boards. JEE prep on top of school is roughly 20-25 extra hours a week. I wanted to use what I was learning in CS to help with that preparation, so I built this over about 10 weeks as a self-directed project.
 
-This is my second CS project, after a phishing URL detector. Both came out of noticing how much people trust systems they can't actually see inside.
+This is my second CS project, after a phishing URL detector.
